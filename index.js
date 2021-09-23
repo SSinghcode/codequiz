@@ -1,3 +1,4 @@
+
 var questions = [
     {
         question: "HTML stands for -",
@@ -148,5 +149,26 @@ function nextQuestion() {
         console.error(err);
     }
 }
+//timer
+var timeEl = document.querySelector(".time");
+var secondsLeft = 1000;
+
+function setTime() {
+  // Sets interval in variable
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent ="Time Remaining " +secondsLeft;
+
+    if(secondsLeft === 0) {
+      
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+      // Calls function to create and append image
+      sendMessage();
+    }
+
+  }, 1000);
+}
 
 
+setTime();
