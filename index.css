@@ -1,0 +1,12 @@
+
+.main{
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+.hide{
+    display: none;
+}
+body{
+    background-color:#E6E6E6;
+}

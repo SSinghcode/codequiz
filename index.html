@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    
+    <main class="main">
+        <div id="statQuizWrapper">
+            <h4>Welcome to the quiz</h4>
+            <button type="button" id="startQuizButton">Start Quiz</button>
+        </div>
+        <div id="questionWrapper" class="hide">
+            <h4>Timer <span id="timerSpan"></span></h4>
+            <p id="questionHeading"></p>
+            <ol id="options"></ol>
+            <div class="clearfix"></div>
+            <button type="button" id="nextQuestion">Next</button>
+        </div>
+        <div id="answers" class="hide">
+            <h4 id="scoreHeading"></h4>
+        </div>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
