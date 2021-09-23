@@ -115,8 +115,10 @@ function analyseAnswer() {
 }
 
 function finishQuiz() {
+    
     let totalScore = questions.length * scorePerQuestion;
     let scored = correctAnswers * scorePerQuestion;
+    
     scoreElement.innerText = `${initial} have scored ${scored} out of ${totalScore}`;
     startQuizButton.classList.add("hide");
     questionWrapper.classList.add("hide");
