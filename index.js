@@ -72,7 +72,7 @@ nextQuestionElement.addEventListener("click", (event) => {
 function getQuestionRefrence() {
     let question = document.getElementById("question");
     let options = document.getElementById("options");
-
+   
     return { question, options };
 }
 
@@ -84,7 +84,7 @@ function getQuestionHtml(question) {
             `<li><input type="radio" name="option" value="${i}" class="chkans"> ${question.options[i]}</li>`
         );
     }
-
+    setTime();
     return optionsHTML;
 }
 
@@ -173,4 +173,3 @@ function setTime() {
 }
 
 
-setTime();
