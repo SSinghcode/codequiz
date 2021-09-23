@@ -66,6 +66,7 @@ let scoreElement = document.getElementById('scoreHeading');
 let timerSpan = document.getElementById('timerSpan');
 
 nextQuestionElement.addEventListener("click", (event) => {
+    
     nextQuestion();
 });
 
@@ -84,11 +85,12 @@ function getQuestionHtml(question) {
             `<li><input type="radio" name="option" value="${i}" class="chkans"> ${question.options[i]}</li>`
         );
     }
-    setTime();
+
     return optionsHTML;
 }
 
 startQuizButton.addEventListener("click", (event) => {
+    setTime();
     startQuizButton.classList.add("hide");
     questionWrapper.classList.remove("hide");
     buildQuestion(0);
@@ -142,7 +144,10 @@ function nextQuestion() {
             defaultTimeLimit -= penaltyPerQuestion;
         }
         if (defaultTimeLimit <= 0 || currentQuestionIndex >= questions.length - 1) {
+            
+     
             finishQuiz();
+            clearInterval(timerInterval);
         } else {
             currentQuestionIndex++;
             buildQuestion(currentQuestionIndex);
@@ -153,7 +158,7 @@ function nextQuestion() {
 }
 //timer
 var timeEl = document.querySelector(".time");
-var secondsLeft = 1000;
+var secondsLeft = 100;
 
 function setTime() {
   // Sets interval in variable
@@ -161,15 +166,13 @@ function setTime() {
     secondsLeft--;
     timeEl.textContent ="Time Remaining " +secondsLeft;
 
-    if(secondsLeft === 0) {
+    if(secondsLeft === 0 ||totalQuestion<=1)  {
       
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to create and append image
-      sendMessage();
+     
     }
 
   }, 1000);
 }
-
-
