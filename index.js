@@ -147,7 +147,7 @@ function nextQuestion() {
             
      
             finishQuiz();
-            clearInterval(timerInterval);
+            
         } else {
             currentQuestionIndex++;
             buildQuestion(currentQuestionIndex);
@@ -166,7 +166,7 @@ function setTime() {
     secondsLeft--;
     timeEl.textContent ="Time Remaining " +secondsLeft;
 
-    if(secondsLeft === 0 ||totalQuestion<=1)  {
+    if(secondsLeft === 0 ||currentQuestionIndex >= questions.length - 1)  {
       
       // Stops execution of action at set interval
       clearInterval(timerInterval);
