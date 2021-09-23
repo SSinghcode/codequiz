@@ -7,4 +7,6 @@ presented with another question
 WHEN I answer a question incorrectly
 all questions are answered or the timer reaches 0
 THEN the game is over
-wjen all question completed time stops
+when all question completed time stops
+depoyed apllication  https://ssinghcode.github.io/codequiz/
+git hub https://github.com/SSinghcode/codequiz
