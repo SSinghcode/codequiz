@@ -19,32 +19,33 @@ var questions = [
         question:
             "Which of the following element is responsible for making the text bold in HTML?",
         options: [
-            "<a>",
-            "<b>",
-            "<br>",
-            "<pre>",
+            "&lt;a&gt;",
+            "&lt;b&gt;",
+            "&lt;br&gt;",
+            "&lt;pre&gt;",
         ],
         correctAnswer: 1,
     },
     {
         question:
             "Which of the following tag is used for inserting the largest heading in HTML?",
-        options: ["<h3>", " <h1>", "<h5>", "<h6>"],
+        options: ["&lt;h3&gt;", " &lt;h1&gt;", "&lt;h5&gt;", "&lt;h6&gt;"],
         correctAnswer: 1,
     },
     {
         question:
             "Which of the following tag is used to insert a line-break in HTML?",
-        options: ["<br>", "<a>", "<pre>", "<strong>"],
+        options: [`&lt;br&gt;`, "&lt;i&gt;", "&lt;pre&gt;", "&lt;strong&gt;"],
         correctAnswer: 0,
     },
     {
         question: "Which of the following element is responsible for making the text italic in HTML?",
-        options: [" <pre>", "<it>", "<italic>", "<i>"],
+        options: [" &lt;pre&gt;", "&lt;it&gt;", "&lt;italic&gt;", "&lt;i&gt;"],
         correctAnswer: 3,
     },
   
 ];
+let initial=prompt("initials")
 
 let currentQuestionIndex = 0;
 let totalQuestion = questions.length;
@@ -96,7 +97,9 @@ startQuizButton.addEventListener("click", (event) => {
 function buildQuestion(index) {
     let question = questions[index];
     questionHeading.innerText = question.question;
-    optionsWrapper.innerHTML = getQuestionHtml(question).join(" ");
+    optionsContainer=getQuestionHtml(question).join(" ");
+    console.log(optionsContainer)
+    optionsWrapper.innerHTML = optionsContainer
     timerSpan.innerText = defaultTimeLimit;
 }
 
@@ -113,7 +116,7 @@ function analyseAnswer() {
 function finishQuiz() {
     let totalScore = questions.length * scorePerQuestion;
     let scored = correctAnswers * scorePerQuestion;
-    scoreElement.innerText = `You have scored ${scored} out of ${totalScore}`;
+    scoreElement.innerText = `${initial} have scored ${scored} out of ${totalScore}`;
     startQuizButton.classList.add("hide");
     questionWrapper.classList.add("hide");
     answersElement.classList.remove('hide');
