@@ -1,4 +1,4 @@
-var secondsLeft = 10;
+var secondsLeft = 100;
 var questions = [
     {
         question: "HTML stands for -",
