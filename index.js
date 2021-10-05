@@ -1,4 +1,4 @@
-
+var secondsLeft = 10;
 var questions = [
     {
         question: "HTML stands for -",
@@ -109,9 +109,16 @@ function buildQuestion(index) {
 function analyseAnswer() {
     let answer = document.querySelector('input[name="option"]:checked');
     console.log('hahha', answer);
+
+    if(this.value !==questions[currentQuestionIndex].correctAnswer){
+        secondsLeft -=10;
+    }
+   
     if (answer !== null) {
         return answer.value;
     }
+  
+  
     console.log('iam here')
     return -1;
 }
@@ -158,7 +165,7 @@ function nextQuestion() {
 }
 //timer
 var timeEl = document.querySelector(".time");
-var secondsLeft = 100;
+
 
 function setTime() {
   // Sets interval in variable
@@ -166,12 +173,14 @@ function setTime() {
     secondsLeft--;
     timeEl.textContent ="Time Remaining " +secondsLeft;
 
-    if(secondsLeft === 0 ||currentQuestionIndex >= questions.length - 1)  {
+    if(currentQuestionIndex >= questions.length - 1||secondsLeft === 0 )  {
       
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to create and append image
-     
+    
+        finishQuiz();
+    
     }
 
   }, 1000);
